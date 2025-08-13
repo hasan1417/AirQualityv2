@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project implements a comprehensive air quality forecasting system using advanced machine learning techniques. The system analyzes historical AQI data from multiple cities worldwide and provides accurate 7-day forecasts using ensemble learning approaches.
+This project implements a comprehensive air quality forecasting system using advanced machine learning techniques. The system analyzes historical AQI data from multiple cities worldwide and provides accurate predictions using ensemble learning approaches.
 
 ## Problem Statement
 
@@ -10,7 +10,7 @@ Air quality forecasting is critical for public health, environmental planning, a
 
 - **Data Complexity**: Handling multi-city, multi-pollutant datasets with missing values and temporal dependencies
 - **Forecasting Accuracy**: Implementing ensemble machine learning models that outperform traditional time series methods
-- **Scalability**: Processing large datasets (100K+ samples) efficiently while maintaining prediction quality
+- **Scalability**: Processing large datasets efficiently while maintaining prediction quality
 - **Real-world Applicability**: Providing actionable insights for air quality management across different geographical regions
 
 ## Technical Approach
@@ -51,16 +51,16 @@ AirQualityv2/
 ├── requirements.txt                    # Python dependencies
 ├── run_analysis.py                     # Single command runner
 ├── model_comparison.py                 # Core ML pipeline
+├── analysis_summary_20250813_151520.txt # Latest analysis summary
 ├── src/
 │   ├── data_loader.py                 # Data loading and preprocessing
 │   ├── feature_engineer.py            # Feature engineering utilities
 │   └── model_trainer.py               # Model training framework
 ├── data/                               # Raw data files
 │   ├── [City]_Air_Quality.csv         # City-specific datasets (6 cities)
-│   └── (Clean, focused dataset without redundant files)
-├── models/                             # Trained models (generated)
-├── results/                            # Analysis outputs (generated)
-└── visualizations/                     # Generated charts (generated)
+├── models/                             # Latest trained model only
+├── results/                            # Latest analysis results only
+└── visualizations/                     # Generated charts
 ```
 
 ## Installation and Setup
@@ -100,25 +100,24 @@ After successful execution, you'll find:
 - **Visualizations**: 
   - Performance comparison charts (MAE, RMSE, MAPE, R²)
   - Predicted vs actual scatter plots for each model
-  - **Test dataset predictions vs actual** - Separate subplots for each model showing the validation period
-  - **Clear sample indexing** - X-axis shows test sample indices representing different environmental conditions
+  - Test dataset predictions vs actual comparisons
 - **Exported Model**: Best model configuration and parameters (JSON format)
 - **Results**: CSV files with predictions and analysis reports
 
 ## Results and Performance
 
 ### Model Performance Summary
-Based on extensive testing with 105,408 samples across 6 cities:
+Based on testing with 10,541 samples across 6 cities:
 
 | Model | MAE | RMSE | MAPE | R² Score | Rank |
 |-------|-----|------|------|----------|------|
-| **Random Forest** | 0.6883 | 1.3455 | 2.55% | **0.9869** | 🥇 |
-| XGBoost | 0.9381 | 1.6666 | 3.42% | 0.9799 | 🥈 |
-| LightGBM | 0.9435 | 1.6868 | 3.46% | 0.9794 | 🥉 |
+| **Random Forest** | 0.8814 | 1.6657 | 3.59% | **0.9716** | 🥇 |
+| LightGBM | 0.9183 | 1.6798 | 3.74% | 0.9711 | 🥈 |
+| XGBoost | 0.9096 | 1.6869 | 3.68% | 0.9709 | 🥉 |
 
 ### Key Achievements
-- **98.69% R² Score**: Random Forest achieves exceptional prediction accuracy
-- **2.55% MAPE**: Average prediction error below 3%
+- **97.16% R² Score**: Random Forest achieves excellent prediction accuracy
+- **3.59% MAPE**: Average prediction error below 4%
 - **Multi-city Generalization**: Models perform consistently across different geographical regions
 - **Temporal Robustness**: Predictions remain accurate across different time periods
 
@@ -132,11 +131,6 @@ Based on extensive testing with 105,408 samples across 6 cities:
    - Rolling statistics: Moving averages and volatility measures
    - Temporal encoding: Day-of-week and seasonal patterns
 4. **Validation Strategy**: Temporal train-test split preserving time order
-5. **Data Representation**: 
-   - Raw data: Multi-city AQI measurements with environmental features (temperature, humidity, wind, etc.)
-   - Processing: Converted to sequential indices (0, 1, 2, ...) for ML algorithms
-   - Test dataset: Last 20% of data (temporal split) representing various environmental conditions
-   - Visualization: Shows sample indices (0 to N) representing different environmental scenarios, not chronological time
 
 ### Model Training Process
 1. **Hyperparameter Optimization**: Grid search with cross-validation
@@ -208,10 +202,6 @@ This project demonstrates modern machine learning practices for time series fore
 
 This project is developed for educational and research purposes. Please ensure compliance with data usage policies when working with air quality datasets.
 
-## Contact
-
-For questions about the implementation or to discuss potential improvements, please refer to the code documentation and comments within the source files.
-
 ---
 
-**Note**: This system represents a production-ready air quality forecasting solution that can be deployed in real-world environmental monitoring applications. The high accuracy (98.69% R²) and robust validation approach make it suitable for critical decision-making processes.
+**Note**: This system represents a production-ready air quality forecasting solution that can be deployed in real-world environmental monitoring applications. The high accuracy (97.16% R²) and robust validation approach make it suitable for critical decision-making processes.
