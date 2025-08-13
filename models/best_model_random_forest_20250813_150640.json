@@ -1,0 +1,36 @@
+{
+  "model_name": "Random Forest",
+  "export_date": "2025-08-13T15:06:40.752091",
+  "performance_metrics": {
+    "mae": 0.6882797937866856,
+    "rmse": 1.3455012431106548,
+    "mape": 2.5461043329867703,
+    "r2": 0.9868855915185129
+  },
+  "training_parameters": {
+    "Random Forest": {
+      "n_estimators": 200,
+      "max_depth": 20,
+      "min_samples_split": 5,
+      "min_samples_leaf": 2
+    },
+    "XGBoost": {
+      "n_estimators": 500,
+      "learning_rate": 0.05,
+      "max_depth": 6,
+      "min_child_weight": 1,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_alpha": 0.1,
+      "reg_lambda": 1.0
+    },
+    "LightGBM": {
+      "num_leaves": 31,
+      "learning_rate": 0.05,
+      "feature_fraction": 0.9,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 5
+    }
+  },
+  "usage_note": "Model needs to be retrained with the provided parameters. See README for instructions."
+}
